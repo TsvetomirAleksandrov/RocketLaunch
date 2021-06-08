@@ -42,7 +42,7 @@ const DetailsPage = (props) => {
                         </tr>
                         <tr>
                             <td>Details</td>
-                            <td colSpan="3">{Launch?.details}</td>
+                            <td colSpan="3">{Launch?.details ? Launch.details : 'No details for this launch'}</td>
                         </tr>
                         <tr>
                             <td>Rocket</td>

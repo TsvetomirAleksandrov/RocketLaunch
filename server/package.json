@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "http-proxy-middleware": "^2.0.0",
+    "morgan": "^1.10.0",
+    "yarn": "^1.22.10"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT"
+}
