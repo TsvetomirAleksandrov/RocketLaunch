@@ -8,7 +8,6 @@ const ListItem = (props) => {
     const { launchInfo } = props;
     const { flight_number } = launchInfo
 
-    console.log(flight_number);
     return (
         <div className='listItem'>
             <AnimationWrapper>
