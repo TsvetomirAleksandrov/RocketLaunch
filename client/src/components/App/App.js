@@ -16,11 +16,10 @@ function App() {
           <Route exact path='/' component={LandingPage} />
           <Route exact path='/details/:launchId' component={DetailsPage} />
         </Switch>
-        
+
         <Footer />
       </div>
     </Router>
-
   );
 }
 
