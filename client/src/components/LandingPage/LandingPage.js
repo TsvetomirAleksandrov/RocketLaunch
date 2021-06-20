@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import ReactDOM from "react-dom";
 import Pagination from "react-js-pagination";
 import { API_URL } from '../Config';
 import ListItem from './ListItem/ListItem';
@@ -8,38 +7,32 @@ import './LandingPage.css';
 
 const LandingPage = () => {
     const [Launch, setLaunch] = useState();
-    const [activePage, setActivePage] = useState();
+    const [activePage, setActivePage] = useState(1);
 
-    const handlePageChange = (pageNumber) => {
+    const handlePageChange = async (pageNumber) => {
+        await handleFetch(pageNumber);
         setActivePage(pageNumber);
-        handleFetch(pageNumber);
     }
 
     const handleFetch = (pageNumber) => {
-        fetch(`${API_URL}?limit=${3}&offset=${pageNumber}`)
+        return fetch(`${API_URL}?limit=${3}&offset=${pageNumber}`)
             .then(res => res.json())
-            .then(
-                (result) => {
-                    setLaunch(result);
-                },
-                (error) => {
-                    setLaunch(error);
-                }
-            )
+            .then((result) => {
+                setLaunch(result);
+            })
+            .catch((error) => console.log(error));
     }
 
     useEffect(() => {
         handleFetch();
     }, [])
 
-    console.log(Launch);
-
     return (
         <div>
             <Heading />
 
             {Launch?.map((launch) => (
-                <ListItem launchInfo={launch} />
+                <ListItem key={launch.flight_number} launchInfo={launch} />
             ))}
 
             <div className='pagination'>
