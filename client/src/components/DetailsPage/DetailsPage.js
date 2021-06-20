@@ -5,12 +5,13 @@ import './DetailsPage.css';
 
 const DetailsPage = (props) => {
     const { history } = props;
-    
+
     const [Launch, setLaunch] = useState();
     const { launchId } = props.match.params;
 
+
     const handleFetch = () => {
-        fetch(`${API_URL}/${launchId}`)
+        return fetch(`${API_URL}/${launchId}`)
             .then(res => res.json())
             .then(
                 (result) => {
