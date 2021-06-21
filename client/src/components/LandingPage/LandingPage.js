@@ -8,6 +8,7 @@ import { Row, Col, Container } from 'react-bootstrap';
 import { useContext } from 'react';
 import { PageNumberContext } from '../context/context';
 
+
 const LandingPage = () => {
     const pageNumberContext = useContext(PageNumberContext);
     const pageState = pageNumberContext.counterCount.state;
