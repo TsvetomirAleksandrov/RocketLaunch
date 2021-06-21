@@ -1,16 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import Pagination from "react-js-pagination";
 import { API_URL } from '../Config';
 import ListItem from './ListItem/ListItem';
 import Heading from './Heading/Heading';
 import './LandingPage.css';
+import { useContext } from 'react';
+import { PageNumberContext } from '../context/context';
 
 const LandingPage = () => {
+    const pageNumberContext = useContext(PageNumberContext);
+    const pageState = pageNumberContext.counterCount.state;
+
     const [Launch, setLaunch] = useState();
     const [activePage, setActivePage] = useState(1);
 
+    // const handlePageChange = useRef(() => { })
+
     const handlePageChange = async (pageNumber) => {
         await handleFetch(pageNumber);
+
+        pageNumberContext.counterDispatch({ type: 'UPDATE_PAGE', pageNumber })
         setActivePage(pageNumber);
     }
 
@@ -24,7 +33,8 @@ const LandingPage = () => {
     }
 
     useEffect(() => {
-        handleFetch();
+        setActivePage(pageState);
+        handleFetch(pageState);
     }, [])
 
     return (
