@@ -11,19 +11,19 @@ const ListItem = (props) => {
     return (
         <div className='listItem'>
             <AnimationWrapper>
-                <Card>
-                    <Card.Header >{launchInfo.mission_name}</Card.Header>
-                    <Card.Body>
-                        <Card.Title>{launchInfo.launch_year}</Card.Title>
-                        <Image src={launchInfo?.links.mission_patch_small} fluid />
-                        <Card.Text>
-                            {launchInfo.launch_site.site_name_long}
-                        </Card.Text>
-                        <Link to={`/details/${flight_number}`}>
-                            <Button variant="dark">Details</Button>
-                        </Link>
-                    </Card.Body>
-                </Card>
+                    <Card>
+                        <Card.Header >{launchInfo.mission_name}</Card.Header>
+                        <Card.Body>
+                            <Card.Title>{launchInfo.launch_year}</Card.Title>
+                            <Image src={launchInfo?.links.mission_patch_small} fluid />
+                            <Card.Text>
+                                {launchInfo.launch_site.site_name_long}
+                            </Card.Text>
+                            <Link to={`/details/${flight_number}`}>
+                                <Button variant="dark">Details</Button>
+                            </Link>
+                        </Card.Body>
+                    </Card>
             </AnimationWrapper>
         </div>
     );

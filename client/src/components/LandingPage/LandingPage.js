@@ -4,6 +4,7 @@ import { API_URL } from '../Config';
 import ListItem from './ListItem/ListItem';
 import Heading from './Heading/Heading';
 import './LandingPage.css';
+import { Row, Col, Container } from 'react-bootstrap';
 import { useContext } from 'react';
 import { PageNumberContext } from '../context/context';
 
@@ -41,9 +42,15 @@ const LandingPage = () => {
         <div>
             <Heading />
 
-            {Launch?.map((launch) => (
-                <ListItem key={launch.flight_number} launchInfo={launch} />
-            ))}
+            <Container>
+                <Row>
+                    {Launch?.map((launch) => (
+                        <Col lg={4}>
+                            <ListItem key={launch.flight_number} launchInfo={launch} />
+                        </Col>
+                    ))}
+                </Row>
+            </Container>
 
             <div className='pagination'>
                 <Pagination
